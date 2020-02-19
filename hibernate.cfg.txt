@@ -1,0 +1,37 @@
+-------------------------------------------In Case Of Oracle-------------------------------------------
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:ORCL</property>
+		<property name="hibernate.connection.username">system</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		
+		<mapping class="base.ModelClass"/>
+	</session-factory>
+</hibernate-configuration>
+
+
+
+-----------------------------------------In case of sql--------------------------------------------
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Shivam</property>
+		<property name="hibernate.connection.username">systema</property>
+		<property name="hibernate.connection.password">root</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+		<mapping class="base.ModelClass" />
+	</session-factory>
+</hibernate-configuration>
