@@ -1,9 +1,14 @@
 package base;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.hibernate.annotations.GenericGenerator;
 import lombok.Data;
 
@@ -29,11 +34,13 @@ public class EmployeeAdhar {
 	private String mobileNo;
 
 	@Column(name = "DOB")
-	private String dob;
+	@Temporal(TemporalType.DATE)
+	private Date dob;
 
 	@Column(name = "DEPT")
 	private String department;
 
 	@Column(name = "ADDRESS")
 	private String address;
+
 }

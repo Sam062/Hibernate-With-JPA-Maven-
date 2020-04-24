@@ -11,13 +11,14 @@
 			</tr>
 			<tr>
 				<td>DOB</td>
-				<td><input type="text" name="dob" required="required" value="01/10/97"></td>
+				<td><input type="text" name="dob" required="required"
+					value="YYYY/MM/DD"></td>
 			</tr>
 			<tr>
 				<td>GENDER</td>
-				<td><input type="radio" name="gen" value="MALE" re>M
-					<input type="radio" name="gen" value="FEMALE">F
-					<input type="radio" name="gen" value="OTHER">OTHER</td>
+				<td><input type="radio" name="gen" value="MALE">M <input
+					type="radio" name="gen" value="FEMALE">F <input
+					type="radio" name="gen" value="OTHER">OTHER</td>
 			</tr>
 			<tr>
 				<td>SALARY</td>
@@ -42,6 +43,6 @@
 			</tr>
 		</table>
 	</form>
-${msg}
+	${msg}
 </body>
 </html>
