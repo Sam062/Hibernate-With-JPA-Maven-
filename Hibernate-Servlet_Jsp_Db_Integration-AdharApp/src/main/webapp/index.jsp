@@ -11,8 +11,7 @@
 			</tr>
 			<tr>
 				<td>DOB</td>
-				<td><input type="text" name="dob" required="required"
-					value="YYYY/MM/DD"></td>
+				<td><input type="date" name="dob" required="required"></td>
 			</tr>
 			<tr>
 				<td>GENDER</td>
@@ -43,6 +42,7 @@
 			</tr>
 		</table>
 	</form>
+	<a href="http://localhost:9697/Hibernate-Servlet_Jsp_Db_Integration-AdharApp/data">GetAllData</a>
 	${msg}
 </body>
 </html>

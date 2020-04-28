@@ -19,14 +19,18 @@ public class EmployeeRegServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, 
 			HttpServletResponse resp) 
 					throws ServletException, IOException {
-		java.util.Date sdf=null;
+		
+		java.util.Date d=null;;
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println("FORM DATE IS :---------------"+req.getParameter("dob"));
 		try {
-			sdf=new SimpleDateFormat("dd/MM/yy").parse(req.getParameter("dob"));
-			System.out.println(sdf);
+			d = sdf.parse(req.getParameter("dob"));
+			System.out.println(d);
 		} catch (ParseException e) {
-			System.out.println("Date not parsed");
+			System.out.println("DATE NOT PARSED :- "+req.getParameter("dob"));
 			e.printStackTrace();
 		}
+
 		EmployeeAdhar ea=new EmployeeAdhar();
 		ea.setEmpName(req.getParameter("ename"));
 		ea.setAddress(req.getParameter("addr"));
@@ -34,7 +38,7 @@ public class EmployeeRegServlet extends HttpServlet {
 		ea.setEmpSal(Double.parseDouble(req.getParameter("esal")));
 		ea.setGender(req.getParameter("gen"));
 		ea.setMobileNo(req.getParameter("mob"));
-		ea.setDob(sdf);
+		ea.setDob(d);
 
 		Integer id=new EmployeeDaoImpl().insertEmp(ea);
 
