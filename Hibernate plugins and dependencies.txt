@@ -11,6 +11,11 @@
    	<artifactId>mysql-connector-java</artifactId>
  	<version>5.1.47</version>
 </dependency>
+	<dependency>
+    		<groupId>jstl</groupId>
+    		<artifactId>jstl</artifactId>
+    		<version>1.2</version>
+</dependency>
 
 
 
@@ -37,10 +42,5 @@
    		 <artifactId>lombok</artifactId>
    		 <version>1.18.10</version>
    		 <scope>provided</scope>
-	</dependency>
-	<dependency>
-    		<groupId>jstl</groupId>
-    		<artifactId>jstl</artifactId>
-    		<version>1.2</version>
 	</dependency>
 </dependencies>
