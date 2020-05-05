@@ -13,6 +13,5 @@
 
 		<mapping class="base.Student" />
 		<mapping class="base.Project" />
-
 	</session-factory>
 </hibernate-configuration>

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 @Entity
@@ -16,9 +17,11 @@ public class Project {
 	@Id
 	@GeneratedValue
 	private Integer pid;
-	private String pcode;
+	@NonNull
+	private String pname;
+	@NonNull
 	private String pinfo;
-
-	@OneToMany(mappedBy = "prObj",fetch = FetchType.EAGER)
-	private List<Student> stdObj;
+	
+	@OneToMany(mappedBy = "prjs",fetch = FetchType.EAGER)
+	private List<Student> stdOb;
 }

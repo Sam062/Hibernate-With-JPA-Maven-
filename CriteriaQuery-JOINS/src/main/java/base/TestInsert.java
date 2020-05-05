@@ -1,40 +1,32 @@
 package base;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 public class TestInsert {
 	public static void main(String[] args) {
 		Session ses=HibernateUtil.getSf().openSession();
 		Transaction tx=null;
 		try(ses) {
 			tx=ses.beginTransaction();
-			Student s1=new Student();
-			s1.setSname("SAM");
-			s1.setSfee(111.1);
-			Student s2=new Student();
-			s2.setSname("XXX");
-			s2.setSfee(222.2);
-			Student s3=new Student();
-			s3.setSname("BBB");
-			s3.setSfee(333.3);
 
-			Project prj1=new Project();
-			prj1.setPcode("IT");
-			prj1.setPinfo("UNDER PROCESS");
-			prj1.setStdObj(List.of(s1));
+			Project p1=new Project("IT","ONGOING");
+			Project p2=new Project("MAT","DONE");
+			Project p3=new Project("IV","INVALID");
 
-			Project prj2=new Project();
-			prj2.setPcode("MAT");
-			prj2.setPinfo("DONE");
-			prj2.setStdObj(List.of(s3));
-			s1.setPrObj(prj1);
-			s3.setPrObj(prj2);
+			Student s1=new Student(null,"SAM", 111.1, p1);
+			Student s2=new Student(null,"AAA", 222.2, p1);
+			Student s3=new Student(null,"WASTE", 333.3, null);
+			Student s4=new Student(null,"BBB", 44.4, p2);
+			Student s5=new Student(null,"CCC", 555.5, p2);
 
 			ses.save(s1);
 			ses.save(s2);
 			ses.save(s3);
+			ses.save(s4);
+			ses.save(s5);
+			ses.save(p3);
+
 
 			tx.commit();
 		} catch (Exception e) {
@@ -42,4 +34,5 @@ public class TestInsert {
 			e.printStackTrace();
 		}
 	}
+
 }
