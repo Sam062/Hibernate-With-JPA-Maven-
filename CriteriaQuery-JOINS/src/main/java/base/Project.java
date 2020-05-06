@@ -3,7 +3,6 @@ package base;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,10 +17,10 @@ public class Project {
 	@GeneratedValue
 	private Integer pid;
 	@NonNull
-	private String pname;
+	private String pcode;
 	@NonNull
 	private String pinfo;
-	
-	@OneToMany(mappedBy = "prjs",fetch = FetchType.EAGER)
-	private List<Student> stdOb;
+
+	@OneToMany(mappedBy = "prodObj")
+	private List<Student> stdObj;
 }

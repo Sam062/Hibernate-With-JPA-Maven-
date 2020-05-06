@@ -17,25 +17,28 @@ public class TestJOIN {
 		try(ses) {
 			CriteriaBuilder builder=ses.getCriteriaBuilder();
 			CriteriaQuery<Object[]> query=builder.createQuery(Object[].class);
-
 			Root<Student> root=query.from(Student.class);
 
-			Join<Object, Object> prj=root.join("prjs",JoinType.LEFT);
+			Join<Object, Object> join=root.join("prodObj",JoinType.LEFT);
+
 			query.multiselect(
 					root.get("sid"),
 					root.get("sname"),
-					prj.get("pname"),
-					prj.get("pinfo"),
-					prj.get("pid")
-					);
+					join.get("pcode"),
+					join.get("pinfo"),
+					join.get("pid"));
+
 			Query<Object[]> q=ses.createQuery(query);
 			List<Object[]> l=q.list();
+
 			for (Object[] ob : l) {
-				System.out.println(ob[0]+"-"+ob[1]+"-"+ob[2]+"-"+ob[3]+"-"+ob[4]);
+				System.out.println(ob[0]+" - "+ob[1]+" - "+ob[2]+" - "+ob[3]+" - "+ob[4]);
 			}
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 }
